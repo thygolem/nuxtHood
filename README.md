@@ -74,11 +74,39 @@ More information about the usage of this directory in [the documentation](https:
     //BASIC VUE SCRIPT
     
     
+    <template>
+    <div>
+        <h1>  </h1>
+        <h2>  </h2>
+        <h3>  </h3>
+        <h4>  </h4>
+        <hr>
+        <table>
+            <tr>
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+            <hr>
+            <tr>
+                <td>  </td>
+                <td>  </td>
+                <td>  </td>
+                <td>  </td>
+            </tr>
+        </table>
+        <hr>
+    </div>
+    </template>
     
     <script>
     export default{
+        props: {
+
+        },
         data() {
             return {
+
             }
         },
         created() {
@@ -89,8 +117,35 @@ More information about the usage of this directory in [the documentation](https:
         },
         methods: {
             
-            },
+        },
     }
     </script>
     
+    <style>
+        table, th, td {
+            border-collapse: collapse;
+            border: 3px solid red;
+            padding:10px;
+        }
+        h5 {
+            border: 0.5px solid green;
+            padding:10px;
+        }
+        h4 {
+            border: 0.2px solid blue;
+            padding:10px;
+        }
+        h3 {
+            border: 0.2px solid blue;
+            padding:10px;
+        }
+        h2 {
+            border: 0.2px solid blue;
+            padding:10px;
+        }
+        h1 {
+            border: 0.2px solid blue;
+            padding:10px;
+        }
+    </style>
 ]

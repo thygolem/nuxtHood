@@ -1,5 +1,7 @@
 <template>
     <div style="padding:15px">
+    
+        <hr>
         <br>
         <h2>
         NEAR DEVICES: {{ devices.length }}
@@ -32,7 +34,9 @@
         <h5>NAME <br><input v-model="newDevice.name"></h5>
         <h5>ID<br><input v-model="newDevice.id"></h5>
         <h5>VALUE<br><input v-model="newDevice.value"></h5>
-
+        <Counter :initialValue="33"></Counter>
+        <Counter :initialValue="66"></Counter>
+        <Counter :initialValue="10000" :delay="100"></Counter>
     </div>
 </template>
 
@@ -46,7 +50,8 @@
                     name: '',
                     id: '',
                     value: '',
-                }
+                },
+                initialV:33
             }
         },
         created() {
