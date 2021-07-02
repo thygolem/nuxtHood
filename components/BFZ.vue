@@ -2,37 +2,42 @@
 <div>
     <h1> taskS </h1>
     <h2> Sistemas de automatización de tareas </h2>
-    <h3> Entornos: </h3>
-    <h4> 
+    <h3> Entornos: 
+            <h4> 
             <ul>Logístico</ul>
             <ul>Sanitario</ul>
             <ul>Hostelería</ul>
-    </h4>
+            </h4>
+    </h3>
     <hr>
-    <table>
-        <td> NAME <input type="text"> </td>
-        <td> ESPID: <input type="text"> </td>
-        <td> Type <input type="text"> </td>
-        <h3> <button @click="addDevice()"> AÑADIR </button></h3>
-    </table>
+
     <hr>
+
     <br>
     <table>
         <tr>
-            <th> NAME </th>
+            <th> ALIAS </th>
             <th> ACTIVE </th>
+            <th> TAG </th>
             <th> Building </th>
             <th> Floor </th>
-            <th> Zone </th>
+            <th> Zone: <span style="color: green"> click to locate this item </span> </th>
         </tr>
         <tr v-for="device in devices" :key="device">
-            <td> UNO </td>
+            <td> {{ device.alias }} </td>
             <td> {{ device.active }} </td>
-            <td> {{ device.b }} </td>
-            <td> {{ device.f }} </td>
-            <td> {{ device.z }} </td>
-            <td> <button onclick="window.location.href='/test'"> LOCATE {{ device.position }} </button> </td>
+            <td> {{ device.tag }} </td>
+            <td> <button> {{ device.b }} </button> </td>
+            <td> <button> {{ device.f }} </button> </td>
+            <td> <button style="color: green"> {{ device.z }} </button>  </td>
         </tr>
+    </table>
+    <br>
+    <table>
+        <td> ALIAS <input v-model="newDevice.alias"> </td>
+        <td> MAC:ADDRESS = TOPIC: <input v-model="newDevice.topic"> </td>
+        <td> TAG <input v-model="newDevice.tag"> </td>
+        <h3> <button @click="addDevice()"> AÑADIR </button></h3>
     </table>
     <hr>
 </div>
@@ -47,11 +52,13 @@ export default{
         return {
             devices:[],
             newDevice: {
+                alias: '',
                 b: '',
                 f: '',
                 z: '',
                 active: '',
-                position: '',
+                topic: '',
+                tag:'',
             }, 
         }
     },
@@ -70,19 +77,25 @@ export default{
             //...FROM API
             var response = [
                 {
+                    alias: "HUMANO",
+                    // B, F, Z y active se recogen de la DB
+                    // Es una información gestionada con Django donde podremos añadir mayor información
+                    // Sería deseable poder     
                     b: "A",
                     f: "B",
                     z: "C",
                     active: false,
-                    position: "ESPID:f",
+                    tag: "#electromecanico",
+                    topic: "AA:BB:CC"
                 },
                 {
+                    alias: "ROBOT",    
                     b: "X",
                     f: "Y",
                     z: "Z",
                     active: true,
-                    position: "ESPID:a",
-
+                    tag: "#asistente",
+                    topic: "XX:YY:ZZ"
                 }
             ];
             this.devices = response;
