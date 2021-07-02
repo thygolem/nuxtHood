@@ -60,7 +60,8 @@
         methods: {
             addDevice() {
                 //...API
-                this.devices.push(this.newDevice)
+                //... Solución a "Reactividad no deseada", capítulo .82 de Ioticos
+                this.devices.push(JSON.parse(JSON.stringify(this.newDevice)));
             },
             getDevices() {
                 //...API
