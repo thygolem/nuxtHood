@@ -72,6 +72,9 @@ More information about the usage of this directory in [the documentation](https:
 
 [
     //BASIC VUE SCRIPT
+    
+    
+    
     <script>
     export default{
         data() {
@@ -88,13 +91,6 @@ More information about the usage of this directory in [the documentation](https:
             
             },
     }
-</script>
+    </script>
     
-    
-    
-    
-    
-    
-    
-    
-    ]
+]
